@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulaire Ticket d’Or - Carambar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+<!-- HEADER -->
+ <header>
+  <a class="logo" href="index.html">
+    <div class="mark">C&Co</div>
+    <div>
+      <div class="title">Carambar & Co</div>
+        <div class="subtitle">Ticket d’Or</div>
+        </div>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#marques">Nos marques</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="ticket.html">🎫 Ticket d’Or</a></li>
+    </ul>
+  </nav>
+</header>
+  
+
+  <main class="section" style="text-align:center;">
+    <h1>📝 Formulaire gagnant</h1>
+    <form action="merci.html" method="post">
+      <label for="code">Code unique du ticket :</label>
+      <input type="text" id="code" name="code" required>
+
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" required>
+
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="prenom" required>
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telephone">Téléphone :</label>
+      <input type="tel" id="telephone" name="telephone" required>
+
+      <label for="adresse">Adresse :</label>
+      <textarea id="adresse" name="adresse" rows="3" required></textarea>
+
+      <label for="personnes">Nombre de personnes (max 10) :</label>
+      <input type="number" id="personnes" name="personnes" min="1" max="10" required>
+
+      <fieldset>
+        <legend>Choisissez votre lot :</legend>
+        <label><input type="radio" name="lot" value="disney" required> Disneyland Paris</label><br>
+        <label><input type="radio" name="lot" value="asterix"> Parc Astérix</label><br>
+        <label><input type="radio" name="lot" value="experience"> Expérience insolite</label><br>
+        <label><input type="radio" name="lot" value="weekend"> Week-end détente & gastronomie</label>
+      </fieldset>
+
+      <button type="submit">Valider ma participation</button>
+    </form>
+  </main>
+	
+<div style="text-align:center; margin: 20px 0;">
+  <a href="index.html" class="cta-button">⬅ Retour au site principal</a>
+</div>
+
+  <footer>
+    <p>© Carambar & Co — Ticket d’Or (Prototype)</p>
+  </footer>
+</body>
+</html>
