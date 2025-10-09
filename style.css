@@ -294,3 +294,17 @@ footer {
   }
 }
 
+/* Supprime les puces et numéros dans les sections */
+.section ul,
+.section ol {
+  list-style: none;     /* enlève les puces et numéros */
+  padding-left: 0;      /* enlève le retrait par défaut */
+  margin: 0;            /* harmonise les marges */
+  text-align: center;   /* garde le texte centré */
+}
+
+.section li {
+  margin: 6px 0;        /* espace régulier entre les lignes */
+}
+
+
