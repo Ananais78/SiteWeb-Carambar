@@ -9,13 +9,13 @@
 <body>
 	
 <!-- HEADER -->
- <header>
+<header>
   <a class="logo" href="index.html">
     <div class="mark">C&Co</div>
     <div>
       <div class="title">Carambar & Co</div>
-        <div class="subtitle">Ticket d’Or</div>
-        </div>
+      <div class="subtitle">Ticket d’Or</div>
+    </div>
   </a>
   <nav>
     <ul>
@@ -28,48 +28,98 @@
 </header>
   
 
-  <main class="section" style="text-align:center;">
-    <h1>📝 Formulaire gagnant</h1>
-    <form action="merci.html" method="post">
-      <label for="code">Code unique du ticket :</label>
-      <input type="text" id="code" name="code" required>
+<!-- FORMULAIRE PRINCIPAL -->
+<main class="section">
+  <h1>📝 Formulaire gagnant</h1>
 
-      <label for="nom">Nom :</label>
-      <input type="text" id="nom" name="nom" required>
+  <form action="merci.html" method="post">
+    <label for="code">Code unique du ticket :</label>
+    <input type="text" id="code" name="code" placeholder="Ex : CARA-2025-XXXX" required>
 
-      <label for="prenom">Prénom :</label>
-      <input type="text" id="prenom" name="prenom" required>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
 
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" required>
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
 
-      <label for="telephone">Téléphone :</label>
-      <input type="tel" id="telephone" name="telephone" required>
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" placeholder="exemple@mail.com" required>
 
-      <label for="adresse">Adresse :</label>
-      <textarea id="adresse" name="adresse" rows="3" required></textarea>
+    <label for="telephone">Téléphone :</label>
+    <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" required>
 
-      <label for="personnes">Nombre de personnes (max 10) :</label>
-      <input type="number" id="personnes" name="personnes" min="1" max="10" required>
+    <label for="adresse">Adresse :</label>
+    <textarea id="adresse" name="adresse" rows="3" placeholder="Numéro et rue, code postal, ville" required></textarea>
 
-      <fieldset>
-        <legend>Choisissez votre lot :</legend>
-        <label><input type="radio" name="lot" value="disney" required> Disneyland Paris</label><br>
-        <label><input type="radio" name="lot" value="asterix"> Parc Astérix</label><br>
-        <label><input type="radio" name="lot" value="experience"> Expérience insolite</label><br>
-        <label><input type="radio" name="lot" value="weekend"> Week-end détente & gastronomie</label>
-      </fieldset>
+    <label for="personnes">Nombre de personnes (max 10) :</label>
+    <input type="number" id="personnes" name="personnes" min="1" max="10" required>
 
-      <button type="submit">Valider ma participation</button>
-    </form>
-  </main>
-	
+    <fieldset>
+      <legend>Choisissez votre lot :</legend>
+      <label><input type="radio" name="lot" value="disney" required> 🎢 Disneyland Paris</label><br>
+      <label><input type="radio" name="lot" value="asterix"> 🏛️ Parc Astérix</label><br>
+      <label><input type="radio" name="lot" value="experience"> 🪂 Expérience insolite</label><br>
+      <label><input type="radio" name="lot" value="weekend"> 🍷 Week-end détente & gastronomie</label>
+    </fieldset>
+
+    <!-- Bouton pour afficher/masquer les autres lots -->
+    <button type="button" id="toggle-lots" style="margin-top:10px;">🔍 Voir d'autres lots</button>
+
+    <!-- Section cachée des autres lots -->
+    <fieldset id="other-lots" style="display:none; margin-top:15px;">
+      <legend>Autres lots disponibles :</legend>
+      <label><input type="radio" name="lot" value="cinema"> 🎬 Séance de cinéma privée</label><br>
+      <label><input type="radio" name="lot" value="concert"> 🎵 Billets de concert</label><br>
+      <label><input type="radio" name="lot" value="spa"> 🛁 Journée spa & bien-être</label><br>
+      <label><input type="radio" name="lot" value="atelier"> 🍫 Atelier chocolat / pâtisserie</label><br>
+      <label><input type="radio" name="lot" value="sport"> ⚽ Stage sportif ou aventure</label>
+    </fieldset>
+
+    <button type="submit">Valider ma participation</button>
+  </form>
+</main>
+
+<script>
+  const toggleButton = document.getElementById('toggle-lots');
+  const otherLots = document.getElementById('other-lots');
+
+  toggleButton.addEventListener('click', () => {
+    if (otherLots.style.display === 'none') {
+      otherLots.style.display = 'block';
+      toggleButton.textContent = '⬆ Masquer les autres lots';
+    } else {
+      otherLots.style.display = 'none';
+      toggleButton.textContent = '🔍 Voir d\'autres lots';
+    }
+  });
+</script>
+
+
+<!-- SECTION RÉCLAMATION -->
+<section id="reclamation">
+  <h2>🧾 Faire une réclamation</h2>
+  <p>Si le lot choisi ne vous convient pas ou si vous rencontrez un problème, remplissez le formulaire ci-dessous.</p>
+  
+  <form action="reclamation.html" method="post">
+    <label for="email-reclam">Votre email :</label>
+    <input type="email" id="email-reclam" name="email-reclam" placeholder="exemple@mail.com" required>
+
+    <label for="message-reclam">Votre réclamation :</label>
+    <textarea id="message-reclam" name="message-reclam" rows="4" placeholder="Décrivez votre demande ici..." required></textarea>
+
+    <button type="submit">Envoyer la réclamation</button>
+  </form>
+</section>
+
+<!-- RETOUR SITE PRINCIPAL -->
 <div style="text-align:center; margin: 20px 0;">
   <a href="index.html" class="cta-button">⬅ Retour au site principal</a>
 </div>
 
-  <footer>
-    <p>© Carambar & Co — Ticket d’Or (Prototype)</p>
-  </footer>
+<!-- FOOTER -->
+<footer>
+  <p>© Carambar & Co — Ticket d’Or (Prototype)</p>
+</footer>
+
 </body>
 </html>
