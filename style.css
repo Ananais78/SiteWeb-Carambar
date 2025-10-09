@@ -7,6 +7,11 @@
   --radius: 12px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* GLOBAL */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -49,17 +54,6 @@ nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
 nav a { text-decoration: none; color: var(--brand-dark); font-weight: 500; }
 nav a:hover { color: var(--brand-primary); }
 
-/* HERO */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 30px;
-  align-items: center;
-  padding: 60px 8vw;
-}
-.hero h1 span { color: var(--brand-primary); }
-.hero img { max-width: 100%; border-radius: var(--radius); }
-
 /* SECTIONS */
 .section {
   padding: 40px 8vw;
@@ -67,43 +61,58 @@ nav a:hover { color: var(--brand-primary); }
   margin: 20px auto;
   border-radius: var(--radius);
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  text-align: center;
 }
-.section h2 {
+.section h1, .section h2 {
   margin-top: 0;
   color: var(--brand-primary);
-  background-color: 
 }
 
-/* LOTS */
-.lots-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-}
-.lot {
-  background: var(--brand-secondary);
+/* --- LIEN - VOIR PLUS DE LOTS --- */
+.lien-lots {
+  display: inline-block;
+  margin: 20px auto 30px;
+  font-weight: 600;
   color: white;
-  padding: 20px;
+  background: var(--brand-primary);
+  padding: 12px 25px;
   border-radius: var(--radius);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  transition: background 0.3s;
 }
-.note {
-  margin-top: 15px;
-  font-style: italic;
-  color: var(--brand-dark);
+.lien-lots:hover {
+  background: var(--brand-dark);
 }
 
-/* FORMULAIRE */
-.form-section form {
-  display: grid;
+/* FORMULAIRE PRINCIPAL */
+form {
+  display: flex;
+  flex-direction: column;
   gap: 15px;
   max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
 }
-input, textarea, button {
+label {
+  font-weight: 500;
+}
+input, textarea, select, button {
+  width: 100%;
+  box-sizing: border-box;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: var(--radius);
   font-family: inherit;
+  font-size: 15px;
+}
+fieldset {
+  border: 2px solid var(--brand-secondary);
+  border-radius: var(--radius);
+  padding: 15px;
+}
+legend {
+  color: var(--brand-primary);
+  font-weight: bold;
 }
 button {
   background: var(--brand-primary);
@@ -111,9 +120,84 @@ button {
   border: none;
   font-weight: bold;
   cursor: pointer;
+  border-radius: var(--radius);
+  padding: 12px;
+  transition: background 0.3s;
 }
 button:hover {
   background: var(--brand-dark);
+}
+
+/* --- SECTION RÉCLAMATION --- */
+#reclamation {
+  background: var(--brand-yellow);
+  padding: 50px 8vw;
+  margin: 0;
+  border-radius: 0;
+  text-align: center;
+}
+#reclamation h2 {
+  color: var(--brand-primary);
+  margin-bottom: 10px;
+}
+#reclamation p {
+  color: var(--brand-dark);
+  margin-bottom: 25px;
+}
+#reclamation form {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 25px 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* --- BOUTONS PRINCIPAUX & RETOUR --- */
+.cta-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: var(--brand-primary);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.cta-button:hover {
+  background: var(--brand-dark);
+}
+
+/* --- ZONE RETOUR SITE PRINCIPAL --- */
+.retour-zone {
+  background: white;
+  text-align: center;
+  padding: 50px 0;
+}
+
+/* LOTS (page lots.html) */
+.lots-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.lot {
+  background: var(--brand-secondary);
+  color: white;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.lot:hover {
+  transform: translateY(-5px);
+}
+.note {
+  margin-top: 15px;
+  font-style: italic;
+  color: var(--brand-dark);
 }
 
 /* FOOTER */
@@ -124,29 +208,89 @@ footer {
   border-top: 2px solid var(--brand-primary);
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 12px 25px;
-  background: var(--brand-primary);
+
+/* === PAGE D’ACCUEIL === */
+
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 8vw;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
   color: white;
   border-radius: var(--radius);
-  font-weight: bold;
-  text-decoration: none;
-}
-.cta-button:hover {
-  background: var(--brand-dark);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* espace entre les champs */
+.hero .left {
+  flex: 1 1 350px;
   max-width: 600px;
-  margin: 0 auto; /* centre le formulaire */
 }
 
-input, textarea, select, button {
-  width: 100%; /* prend toute la largeur disponible */
-  box-sizing: border-box;
+.hero .left h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.hero .left span {
+  color: var(--brand-yellow);
+}
+
+.hero .left p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.hero .right img {
+  width: 320px;
+  max-width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.hero .right img:hover {
+  transform: scale(1.05);
+}
+
+/* SECTIONS D’ACCUEIL (marques / contact) */
+#marques {
+  background: white;
+}
+#marques h2 {
+  color: var(--brand-primary);
+}
+
+#contact {
+  background: var(--brand-yellow);
+}
+#contact h2 {
+  color: var(--brand-primary);
+}
+#contact p {
+  font-size: 1.1rem;
+  color: var(--brand-dark);
+}
+#contact a {
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Adaptation responsive */
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero .left, .hero .right {
+    max-width: 100%;
+  }
 }
 
