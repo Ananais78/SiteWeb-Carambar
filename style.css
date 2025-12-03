@@ -24,7 +24,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 30px;
+  padding: 18px 10px;
   background: white;
   border-bottom: 2px solid var(--brand-primary);
   position: sticky;
@@ -38,8 +38,8 @@ header {
   color: var(--brand-dark);
 }
 .mark {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: var(--radius);
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
   display: flex;
@@ -47,12 +47,37 @@ header {
   justify-content: center;
   color: white;
   font-weight: bold;
+  font-size: 12px;
 }
 .title { font-weight: 700; }
 .subtitle { font-size: 13px; color: var(--muted); }
-nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
-nav a { text-decoration: none; color: var(--brand-dark); font-weight: 500; }
-nav a:hover { color: var(--brand-primary); }
+nav {
+  flex: 1;
+}
+nav ul { 
+  display: flex; 
+  gap: 8px; 
+  list-style: none; 
+  margin: 0; 
+  padding: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+nav a { 
+  text-decoration: none; 
+  color: white; 
+  font-weight: 500;
+  background: var(--brand-secondary);
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  transition: background 0.3s;
+  white-space: nowrap;
+  font-size: 15px;
+}
+nav a:hover { 
+  background: var(--brand-primary);
+}
+
 
 /* SECTIONS */
 .section {
@@ -208,7 +233,6 @@ footer {
   border-top: 2px solid var(--brand-primary);
 }
 
-
 /* === PAGE D’ACCUEIL === */
 
 /* HERO */
@@ -307,4 +331,225 @@ footer {
   margin: 6px 0;        /* espace régulier entre les lignes */
 }
 
+/* --- AJOUT : STYLE POUR LE SCRIPT "CARAMBAR EN VILLE" --- */
+#concept, #deroulement, #recompenses {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 30px 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+#concept h2, #deroulement h2, #recompenses h2 {
+  color: #E3097E;
+  border-left: 6px solid var(--brand-yellow);
+  padding-left: 12px;
+  margin-bottom: 15px;
+}
+
+#deroulement article {
+  background: #fff0f5; /* rose très clair */
+  padding: 15px 20px;
+  border-left: 5px solid var(--brand-primary);
+  border-radius: var(--radius);
+  margin: 15px 0;
+  text-align: left;
+}
+
+#deroulement ul li, #recompenses ul li {
+  text-align: left;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  position: relative;
+}
+
+/* --- ONGLETS DES MOIS --- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  background: white;
+  padding: 10px 0;
+  border-bottom: 2px solid var(--brand-primary);
+  margin-bottom: 30px;
+}
+
+.tabs a {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  background: var(--brand-secondary);
+  color: white;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.tabs a:hover {
+  background: var(--brand-primary);
+  color: var(--brand-yellow);
+}
+
+.tabs a.active {
+  background: var(--brand-primary);
+  color: var(--brand-yellow);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Adaptation responsive pour les onglets */
+@media (max-width: 600px) {
+  .tabs {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+
+.carousel-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px 10px;
+  background: #FF7AC4;   /* fond rose clair */
+  border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: #E3097E;   /* rose vif */
+  border-radius: 10px;
+}
+
+.carousel-track::-webkit-scrollbar-track {
+  background: #ffd90033; /* jaune clair transparent */
+  border-radius: 10px;
+}
+
+.carousel-slide img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#image {
+  width: 200px;
+  height: auto;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+/* === Reset global === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  background: #f89ad1;
+  color:#ff0095;
+}
+
+/* Header & Logo */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 75rem;
+  height: 10rem;
+  background: #f8d1f8;
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+/* Carousel Swiper */
+.tranding-slider {
+  width: 90%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem 0;
+}
+
+.swiper-wrapper {
+  align-items: center;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px !important;
+  height: 280px !important;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 250px !important;
+  height: 250px !important;
+  object-fit: scale-down;       /* Réduit sans déformer */
+  object-position: center;
+  display: block;
+}
+
+/* Pagination et flèches */
+.swiper-pagination {
+  bottom: 10px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff0095;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .swiper-slide {
+    width: 200px;
+    height: 280px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-slide {
+    width: 150px;
+    height: 210px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .swiper-slide {
+    width: 120px;
+    height: 170px;
+  }
+}
 
